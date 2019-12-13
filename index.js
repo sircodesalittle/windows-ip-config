@@ -26,16 +26,17 @@ const getIPVersion = (ipVersion) => {
 };
 
 const executeCommand = (command) => {
-    console.debug('Executing command: ' + command);
+    console.log('Executing command: ' + command);
     const executedCommand = exec(command, (error, stdout, stderr) => {
-        if (error)
+        if (error) {
             console.log(error);
-        // console.log(stdout);
-        // console.log(stderr);
+            console.log(stdout);
+            console.log(stderr);
+        }
     });
 
     executedCommand.on('exit', (code) => {
-        console.debug('Command process exited with exit code: ' + code);
+        console.log('Command process exited with exit code: ' + code);
     })
 };
 
